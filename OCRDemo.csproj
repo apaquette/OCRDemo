@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="IronOcr" Version="2023.10.9" />
+    <PackageReference Include="OpenCvSharp4" Version="4.8.0.20230708" />
   </ItemGroup>
 
 </Project>
