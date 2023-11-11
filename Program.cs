@@ -17,10 +17,24 @@ void ConvertToText(string imagePath)
     }
 }
 
+void EdgeDetection(string imagePath)
+{
+    using var src = new Mat(imagePath);
+    using var dst = new Mat();
+    Cv2.Canny(src, dst, 50, 200);
 
+    using (new Window("src image", src))
+    using (new Window("dst image", dst))
+    {
+        Cv2.WaitKey();
+    }
+}
 
 string[] files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_Cropped");
-foreach(var file in files)
-{
-    ConvertToText(file);
-}
+EdgeDetection(files[2]);
+
+//foreach(var file in files)
+//{
+//    EdgeDetection(file);
+//    //ConvertToText(file);
+//}
