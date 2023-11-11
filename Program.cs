@@ -1,4 +1,5 @@
 ﻿using IronOcr;
+using OpenCvSharp;
 
 void ConvertToText(string imagePath)
 {
@@ -15,6 +16,8 @@ void ConvertToText(string imagePath)
         Console.WriteLine("---------------------");
     }
 }
+
+
 
 string[] files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_Cropped");
 foreach(var file in files)
