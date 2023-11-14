@@ -1,4 +1,5 @@
 ﻿using IronOcr;
+using Emgu.CV.Text;
 
 void ConvertToText(string imagePath)
 {
@@ -14,6 +15,11 @@ void ConvertToText(string imagePath)
         Console.WriteLine(Result.Text);
         Console.WriteLine("---------------------");
     }
+}
+
+void EdgeDetection(string imagePath)
+{
+    
 }
 
 string[] files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_Cropped");
