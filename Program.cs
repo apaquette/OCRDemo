@@ -1,41 +1,21 @@
 ﻿using IronOcr;
-using OpenCvSharp;
-using Emgu.CV.Text;
+
+Rectangle contentArea = new(x: 385, y: 415, width: 280, height: 70);
 
 void ConvertToText(string imagePath)
 {
     IronTesseract IronOcr = new();
-    using(OcrInput input = new(imagePath))
+    using(OcrInput input = new(imagePath, contentArea))
     {
-        input.DeNoise();
-        //input.Deskew();
-        //input.EnhanceResolution();
-        //input.Contrast();
-        //input.Invert();
         var Result = IronOcr.Read(input);
+        Console.WriteLine(imagePath);
         Console.WriteLine(Result.Text);
         Console.WriteLine("---------------------");
     }
 }
 
-void EdgeDetection(string imagePath)
+string[] files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_Artificial\\Temp_artificial");
+foreach (var file in files)
 {
-    using var src = new Mat(imagePath);
-    using var dst = new Mat();
-    Cv2.Canny(src, dst, 400, 250);
-
-    using (new Window("src image", src))
-    using (new Window("dst image", dst))
-    {
-        Cv2.WaitKey();
-    }
+    ConvertToText(file);
 }
-
-string[] files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_EditOne");
-EdgeDetection(files[1]);
-
-//foreach (var file in files)
-//{
-//    //EdgeDetection(file);
-//    ConvertToText(file);
-//}
