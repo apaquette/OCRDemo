@@ -14,8 +14,5 @@ void ConvertToText(string imagePath)
     }
 }
 
-string[] files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_Artificial\\Temp_artificial");
-foreach (var file in files)
-{
-    ConvertToText(file);
-}
+List<string> files = Directory.GetFiles("D:\\SETU\\Project C4\\Remote Energy Meter\\OCR Demo\\OCRDemo\\Photos_Artificial\\Temp_artificial").ToList();
+files.ForEach(ConvertToText);
